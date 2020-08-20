@@ -10,6 +10,6 @@ gradle.projectsLoaded { g ->
                 classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8'
             }
         }
-        println "init buildScript"
+        println "AndroidQT --> loaded buildScript deps: sonarqube-gradle"
     }
 }

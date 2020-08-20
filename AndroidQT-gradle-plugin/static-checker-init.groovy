@@ -1,0 +1,1 @@
+apply from: QT_Path +'sonar-init.groovy'

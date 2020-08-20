@@ -1,0 +1,3 @@
+ext.QT_Path = "https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/master/AndroidQT-gradle-plugin/"
+
+apply from: QT_Path + 'static-checker-init.groovy'
