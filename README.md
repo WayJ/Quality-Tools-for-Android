@@ -25,9 +25,11 @@
 另外还有其他方面的工具，性能工具、安全工具，也在计划的范围之内。
 
 
-## 教程
+## 目录
 
-### 引入
+### 使用gradle插件分析代码质量，生成代码质量报告。
+
+#### 引入
 
 1、在 rootProject 的 setting.gradle 中 加入一行
 
@@ -41,12 +43,18 @@ apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/ma
 apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/master/AndroidQT-gradle-plugin/android-qt.gradle'
 ~~~
 
-### 使用
+#### 结合Sonar线上扫描
 
-1、执行sonarqube扫描。（rootProject->gradle tasks->verification->sonarqube）
+执行sonarqube扫描，并上传到sonar服务端。（rootProject->gradle tasks->verification->sonarqube）
 
 ~~~
 ./gradlew sonarqube
+~~~
+
+#### 本机离线扫描
+
+~~~
+./gradlew check
 ~~~
 
 
