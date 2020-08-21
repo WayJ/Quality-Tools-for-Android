@@ -54,7 +54,6 @@ apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/ma
 ## 参考
 
 * [Quanta](https://github.com/g4s8/Quanta)
-* [qulice](https://github.com/teamed/qulice)
 * [vb-android-app-quality](https://github.com/vincentbrison/vb-android-app-quality)
 * [Quality-Tools-for-Android](https://github.com/stephanenicolas/Quality-Tools-for-Android)
 * [sonar-android-lint-plugin](https://github.com/peter-budo/sonar-android-lint-plugin)

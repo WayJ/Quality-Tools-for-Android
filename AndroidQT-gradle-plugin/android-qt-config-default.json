@@ -1,0 +1,8 @@
+{
+    "findbugs":{
+        "excludeFilter":"static-checker/findbugs-filter.xml"
+    },
+    "pmd":{
+        "ruleSets" : ["java-android", "java-basic", "java-braces", "java-strings"]
+    }
+}

@@ -1,0 +1,16 @@
+<FindBugsFilter xmlns="http://findbugs.sourceforge.net/filter/3.0.0">
+    <!-- Exclude auto-generated R class. -->
+    <Match>
+        <Class name="~.*\.R\$.*" />
+    </Match>
+    <Match>
+        <Class name="~.*\.Manifest\$.*"/>
+    </Match>
+    <!-- All bugs in test classes, except for JUnit-specific bugs -->
+    <Match>
+        <Class name="~.*\.*Test" />
+        <Not>
+            <Bug code="IJU" />
+        </Not>
+    </Match>
+</FindBugsFilter>
