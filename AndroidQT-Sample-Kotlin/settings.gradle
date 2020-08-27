@@ -1,0 +1,5 @@
+include ':app'
+rootProject.name = "AndroidQTSample-Kotlin"
+
+
+apply from:'D:/Projects/MyGithub/Quality-Tools-for-Android/AndroidQT-gradle-plugin/android-qt-settings.gradle'
