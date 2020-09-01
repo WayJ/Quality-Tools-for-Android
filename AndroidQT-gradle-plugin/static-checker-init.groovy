@@ -1,7 +1,7 @@
 apply from: QT_Path +'static-checker/sonar-init.groovy'
 apply from: QT_Path +'static-checker/pmd-init.groovy'
 apply from: QT_Path +'static-checker/checkstyle-init.groovy'
-apply from: QT_Path +'static-checker/ktlint-init.groovy'
+// apply from: QT_Path +'static-checker/ktlint-init.groovy'
 apply from: QT_Path +'static-checker/jacoco-init.groovy'
 
 // 不小于该版本

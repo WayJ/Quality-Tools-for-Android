@@ -11,7 +11,7 @@ gradle.projectsEvaluated {
             jcenter()
         }
         dependencies {
-            ktlint "com.pinterest:ktlint:0.38.0"
+            ktlint "com.pinterest:ktlint:0.38.1"
         }
 
         if (project.hasProperty('android')) {
@@ -32,15 +32,15 @@ void addKtlintTask(final Project project) {
     }.find { null != it }.collect { it.java.srcDirs }
         
     project.tasks.create([name:'ktlint', type:JavaExec, group:'verification']) {
-        args '--android'
+        // args '--android'
         // classpath files(buildscript.scriptClassPath.asFiles)
         classpath = project.configurations.ktlint
         description 'Check Kotlin code style.'
         ignoreExitValue true
         // main 'com.github.shyiko.ktlint.Main'
         main = "com.pinterest.ktlint.Main"
-        // args "src/**/*.kt"
-        source.each { args "${it.absolutePath}/**/*.kt" }
+        args "src/**/*.kt"
+        // source.each { args "${it.absolutePath}/**/*.kt" }
     }
 }
 

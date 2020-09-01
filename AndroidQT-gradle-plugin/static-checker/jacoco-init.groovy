@@ -9,7 +9,8 @@ gradle.projectsEvaluated {
                 addJacocoTestReport project
             }
         }
-    }
+    }    
+    println "AndroidQT --> apply plugin: jacoco"
     if (rootProject.subprojects.isEmpty()) {
         rootProject applyJacocoTestReport
     } else {
@@ -22,8 +23,9 @@ ext.FILE_FILTER =
 
 // Jacoco aggregation report
 void addJacocoTestReport(final Project project) {
+    
     project.apply plugin:'jacoco'
-
+    
     project.jacoco {
         toolVersion = '0.8.2'
     }
@@ -32,6 +34,7 @@ void addJacocoTestReport(final Project project) {
         jacoco.includeNoLocationClasses = true
     }
 
+    
     project.tasks.create([name:'jacocoTestReport',
                           type:JacocoReport,
                           dependsOn:['testDebugUnitTest', COVERAGE_REPORT_TASK_NAME],]) {
@@ -59,7 +62,11 @@ FileCollection getDebugSources(final Project project) {
         if (project.android.hasProperty(variantType)) {
             project.android."${variantType}".all { variant ->
                 if (variant.buildType.name == 'debug') {
-                    classes += fileTree(dir:"${variant.javaCompileProvider.get().destinationDir}", excludes:FILE_FILTER)
+                    if(CompareGradleVersion('4.10.1')){
+                        classes += fileTree(dir:"${variant.javaCompileProvider.get().destinationDir}", excludes:FILE_FILTER)
+                    }else{
+                        classes += fileTree(dir:"${variant.javaCompile.destinationDir}", excludes:FILE_FILTER)
+                    }
                 }
             }
         }

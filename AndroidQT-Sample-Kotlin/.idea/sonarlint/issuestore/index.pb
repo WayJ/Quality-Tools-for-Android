@@ -11,3 +11,11 @@ Bapp/src/main/java/com/wayj/androidqt/sample/kotlin/MainActivity.kt,a\0\a04a84b
 local.properties,0\7\0712df971a99ac4d2fccb8e0fb19f377f3374cca
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+s
+Capp/src/main/java/com/wayj/androidqt/sample/kotlin/FirstFragment.kt,a\8\a8d7c88c1186168a94a3045c1abad83ec8377551
+u
+Eapp/src/test/java/com/wayj/androidqt/sample/kotlin/ExampleUnitTest.kt,8\1\8190f2f73995fa7fc72cb2a01bf0de39032ec09a
+t
+Dapp/src/main/java/com/wayj/androidqt/sample/kotlin/SecondFragment.kt,5\6\567e9ef98f8cb6244533d17759d6ac532c12c7ba
+„
+Tapp/src/androidTest/java/com/wayj/androidqt/sample/kotlin/ExampleInstrumentedTest.kt,4\5\45a406727a32855f3a1c02f6294c7725fa750ff5

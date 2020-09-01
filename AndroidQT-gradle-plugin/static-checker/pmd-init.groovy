@@ -41,7 +41,6 @@ void addPMDTask(final Project project) {
         }
     }
     project.check.dependsOn += [project.tasks.pmd]
-    println "AndroidQT --> degug 2"+project.check.dependsOn
 }
 
 

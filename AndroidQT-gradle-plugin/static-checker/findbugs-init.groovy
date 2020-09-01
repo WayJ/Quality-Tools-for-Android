@@ -77,7 +77,6 @@ void addFindBugsTask(final Project project) {
         }
     }
     project.check.dependsOn += [project.tasks.findbugs]
-    println "AndroidQT --> degug 3"+project.check.dependsOn
 }
 
 FileCollection getDebugSources(final Project project) {
