@@ -7,8 +7,8 @@ gradle.projectsLoaded { g ->
                 }
             }
             dependencies {
-                classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8'
-                classpath "gradle.plugin.com.github.spotbugs.snom:spotbugs-gradle-plugin:4.5.0"
+                classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0'
+                // classpath "gradle.plugin.com.github.spotbugs.snom:spotbugs-gradle-plugin:4.5.0"
             }
         }
         println "AndroidQT --> loaded buildScript deps: sonarqube-gradle"

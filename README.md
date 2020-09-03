@@ -72,12 +72,12 @@ debug {
 
 ## 参考
 
-* [Quanta](https://github.com/g4s8/Quanta)
-* [vb-android-app-quality](https://github.com/vincentbrison/vb-android-app-quality)
-* [Quality-Tools-for-Android](https://github.com/stephanenicolas/Quality-Tools-for-Android)
+* [g4s8/Quanta](https://github.com/g4s8/Quanta)
+* [vincentbrison/vb-android-app-quality](https://github.com/vincentbrison/vb-android-app-quality)
+* [stephanenicolas/Quality-Tools-for-Android](https://github.com/stephanenicolas/Quality-Tools-for-Android)
 * [sonar-android-lint-plugin](https://github.com/peter-budo/sonar-android-lint-plugin)
 * [alibaba-p3c](https://github.com/alibaba/p3c/blob/master/idea-plugin/README_cn.md)
-* [gradle-init-scripts](https://github.com/ffgiff/gradle-init-scripts)
+* [ffgiff/gradle-init-scripts](https://github.com/ffgiff/gradle-init-scripts)
 
 
 

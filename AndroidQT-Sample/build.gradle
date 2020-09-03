@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-apply from:'D:/Projects/MyGithub/Quality-Tools-for-Android/AndroidQT-gradle-plugin/android-qt-debug.gradle'
+apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/master/AndroidQT-gradle-plugin/android-qt.gradle'
 
 buildscript {
     repositories {

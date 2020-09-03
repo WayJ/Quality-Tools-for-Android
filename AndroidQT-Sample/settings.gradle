@@ -2,4 +2,4 @@ include ':app'
 rootProject.name = "AndroidQTSample"
 
 
-apply from:'D:/Projects/MyGithub/Quality-Tools-for-Android/AndroidQT-gradle-plugin/android-qt-settings.gradle'
+apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/master/AndroidQT-gradle-plugin/android-qt-settings.gradle'
