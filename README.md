@@ -14,8 +14,6 @@
 * 使用 CLI（python）或者 idea plugin ，为开发阶段提供主动的质量自动优化
 * 使用 git hook 将阻断错误拦截在 commit 之前
 
-
-
 ​		本工具还应该配套对应的编码规范、质量管理措施、各环节的质量监控工具，全面的结合起来，才能够达成最终的目标。
 ​		或许有空的话，也会把这相关的内容也整理出来。
 ​		另外还有其他方面的工具，性能工具、安全工具，也在计划的范围之内。
@@ -54,6 +52,16 @@ debug {
 ./gradlew jacocoTestReport
 ~~~
 
+#### 主动下载代码扫描规则配置
+
+主要是 FindBugs 和 CheckStyle 的配置文件，每次执行会自动删除之前的配置文件。
+
+~~~
+./gradlew qtConfigGet
+~~~
+
+下载的配置文件在 rootProject 的 ./gradle/android-qt 文件夹下。
+
 #### 结合Sonar线上扫描
 
 执行sonarqube扫描，并上传到sonar服务端。（rootProject->gradle tasks->verification->sonarqube）
@@ -68,6 +76,9 @@ debug {
 ./gradlew check
 ~~~
 
+#### 其他说明
+
+1、gradle 5.6 开始，去除了自带的 FindBugs 插件。所以如果使用gradle 5.6 及以上，不在会导入 FindBugs。目前正在尝试集成FaceBook/Infer 代码扫描和Spotbugs 做为替代。
 
 
 ## 参考

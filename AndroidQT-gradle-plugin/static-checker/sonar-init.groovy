@@ -19,6 +19,7 @@ gradle.projectsEvaluated { g ->
     g.rootProject {
         apply plugin:'org.sonarqube'
         
+        
         println "AndroidQT --> apply plugin: sonarqube"
 
         tasks.sonarqube.group 'Verification'
