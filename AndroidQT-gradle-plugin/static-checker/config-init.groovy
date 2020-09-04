@@ -17,7 +17,7 @@ gradle.projectsEvaluated { g ->
         }
 
         task qtConfigDownloadZip(type: Download,dependsOn: qtConfigClearConfig) {
-            src 'https://github.com/WayJ/Quality-Tools-for-Android/releases/download/v0.1-alpha/config-default-v0.1.zip'
+            src configZipFileUrl
             dest new File("$rootDir/.gradle/android-qt", 'config-default.zip')
 
             doLast {

@@ -12,8 +12,9 @@ ext.CompareGradleVersion =  { targetVersion -> CompareVersion(gradle.gradleVersi
 Properties properties = new Properties();
 try {
     properties.load(new FileInputStream(new File(rootDir,"gradle.properties")));
-    ext.sonarUrl = properties.getProperty("qt.sonarUrl");
-    println sonarUrl
+    String setfileUrl = properties.getProperty("qt.configZipFileUrl");
+    String defaultFileUrl = 'https://github.com/WayJ/Quality-Tools-for-Android/releases/download/v0.1-alpha/config-default-v0.1.zip';
+    ext.configZipFileUrl = (setfileUrl == null) ? defaultFileUrl : setfileUrl;
 } catch (IOException e) {
     e.printStackTrace();
 }

@@ -57,7 +57,7 @@ debug {
 
 目前初始化过程做了以下操作：
 
-* 下载代码扫描规则配置：主要是 FindBugs 和 CheckStyle 的配置文件，每次执行会自动删除之前的配置文件。
+* 下载代码扫描规则配置：主要是 FindBugs 和 CheckStyle 的配置文件，执行会覆盖之前的配置文件。
 
 ~~~
 ./gradlew qtInit
@@ -81,17 +81,29 @@ debug {
 
 #### 其他说明
 
-1、gradle 5.6 开始，去除了自带的 FindBugs 插件。所以如果使用gradle 5.6 及以上，不在会导入 FindBugs。目前正在尝试集成FaceBook/Infer 代码扫描和Spotbugs 做为替代。
+1、gradle 5.6 开始，去除了自带的 FindBugs 插件。所以如果使用gradle 5.6 及以上，不会导入 FindBugs。目前正在尝试集成FaceBook/Infer 代码扫描和Spotbugs 做为替代。
 
 2、配置参数
 
-工具提供了以下参数进行扩展配置，配置方式是在 rootProject 的 gradle.properties 文件中加入配置参数。
+工具提供了以下可选配置项，以下都是可选配置，非必须，不配的话就会按照默认参数来。
+
+配置方式是在 rootProject 的 gradle.properties 文件中加入配置参数。
 
 ```
-# 配置SonarQube的Url地址，执行sonarqube时需要用到
-qt.sonarUrl = http://ip:port
+# gradle.properties
+#------------------- Android QT 工具配置
+#----- 代码校验规则配置文件的下载地址，用于提供自定规则，必须是zip，文件目录和文件名要参考我提供的
+qt.configZipFileUrl = https://github.com/WayJ/Quality-Tools-for-Android/releases/download/v0.1-alpha/config-default-v0.1.zip
+#------------------- 以下为Sonar配置，更多可以查看sonar插件官方文档
+#----- 配置SonarQube的Url地址，执行sonarqube时需要用到。***** 这个如果要用到sonar，就会是必须要配置的
+systemProp.sonar.host.url=http://localhost:9000
+#----- Sonar的项目key 标识
+systemProp.sonar.projectKey = AndroidQTSampleKey
+#----- 显示在Sonar上的Project名
+systemProp.sonar.projectName = AndroidQTSampleDemo
 ```
 
+更多sonar的配置可以看Sonar官方文档： [sonarscanner-for-gradle](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/) ,  [Sonar-analysis-parameters]( https://docs.sonarqube.org/latest/analysis/analysis-parameters/)
 
 
 ## 参考

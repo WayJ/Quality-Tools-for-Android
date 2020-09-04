@@ -24,7 +24,7 @@ gradle.projectsEvaluated { g ->
 
         tasks.sonarqube.group 'Verification'
 
-        String sonarHostUrl = (sonarUrl==null)?"http://192.168.40.17:30910":sonarUrl
+        // String sonarHostUrl = (sonarUrl==null)?"http://192.168.40.17:30910":sonarUrl
 
         // println sonarHostUrl
 
@@ -34,7 +34,7 @@ gradle.projectsEvaluated { g ->
 
                 property "sonar.language","java"  //语言
 //            property "sonar.profile", "Android Lint"
-                property "sonar.host.url", sonarHostUrl
+                property "sonar.host.url", "http://192.168.40.17:30910"
             }
         }
         ext.applySonar = {
