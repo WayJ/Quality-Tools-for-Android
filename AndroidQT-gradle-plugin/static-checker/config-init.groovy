@@ -2,14 +2,6 @@
 gradle.projectsEvaluated { g ->
     g.rootProject {
         apply plugin: 'de.undercouch.download'
-        // rootProject addDownloadConfigTask
-
-        // task downloadFile << {
-        //     download {
-        //         src 'https://github.com/WayJ/Quality-Tools-for-Android/releases/download/v0.1-alpha/config-default-0.1.zip'
-        //         dest buildDir
-        //     }
-        // }
 
         task qtConfigClearConfig(type: Delete){
             delete "$rootDir/.gradle/android-qt"
@@ -34,7 +26,6 @@ gradle.projectsEvaluated { g ->
         // }
 
         task qtInit(dependsOn: qtConfigDownloadZip){
-
             doLast{
                 println "AndroidQT --> 下载配置文件：success"
             }

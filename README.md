@@ -2,7 +2,7 @@
 
 这是一个用于提高 Android App 的软件质量的工具集。
 
-## 为什么要做这个
+## Introduction
 
 ​		期望做一个可能方便使用的工具，设置简单，且可在线更新远程脚本。同时想要能够查看团队内成员的代码质量，结合CI。生成质量分析报告。
 ​		所以，本工具的设计思路，是以集成现有的第三方工具为主，自研为辅，尽量以无感知无侵入的方式，为 Android 项目产出一个质量分析报告并提供相应改进策略。
@@ -19,11 +19,11 @@
 ​		另外还有其他方面的工具，性能工具、安全工具，也在计划的范围之内。
 
 
-## 目录
+## Start
 
 ### 使用gradle插件分析代码质量，生成代码质量报告。
 
-#### 引入
+#### 导入
 
 1、在 rootProject 的 setting.gradle 中 加入一行
 
@@ -35,22 +35,6 @@ apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/ma
 
 ~~~
 apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/master/AndroidQT-gradle-plugin/android-qt.gradle'
-~~~
-
-3、生成测试率覆盖报告
-
-功能开关：需要开启覆盖率统计，开启后会自动导入jacoco。
-
-开启方式：在模块的build.gradle里的buildTypes闭包里添加开启覆盖率统计，如下。
-
-~~~
-debug {    
-    testCoverageEnabled true
-}
-~~~
-使用方式：使用命令 **jacocoTestReport** 来计算覆盖率
-~~~
-./gradlew jacocoTestReport
 ~~~
 
 #### 初始化
@@ -73,19 +57,25 @@ debug {
 ./gradlew sonarqube
 ~~~
 
+SonarQube配置和使用可以 [看这里](docs/sonarqube.md)
+
 #### 线下扫描：导出报告
 
 ~~~
 ./gradlew check
 ~~~
 
-#### 其他说明
+开发中可以使用 [Alibaba Java Code Guidelines插件](https://github.com/alibaba/p3c/blob/master/idea-plugin/README_cn.md) 来实时检测代码是否符合规范
 
-1、gradle 5.6 开始，去除了自带的 FindBugs 插件。所以如果使用gradle 5.6 及以上，不会导入 FindBugs。目前正在尝试集成FaceBook/Infer 代码扫描和Spotbugs 做为替代。
+## 更多
 
-2、配置参数
+#### FindBugs 自 Gradle v5.6 开始移除
 
-工具提供了以下可选配置项，以下都是可选配置，非必须，不配的话就会按照默认参数来。
+gradle 5.6 开始，去除了自带的 FindBugs 插件。所以如果使用gradle 5.6 及以上，不会导入 FindBugs。目前正在尝试集成FaceBook/Infer 代码扫描和Spotbugs 做为替代。
+
+#### 配置参数
+
+工具提供了以下可选配置项，以下都是 **可选配置**，非必须
 
 配置方式是在 rootProject 的 gradle.properties 文件中加入配置参数。
 
@@ -104,6 +94,26 @@ systemProp.sonar.projectName = AndroidQTSampleDemo
 ```
 
 更多sonar的配置可以看Sonar官方文档： [sonarscanner-for-gradle](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/) ,  [Sonar-analysis-parameters]( https://docs.sonarqube.org/latest/analysis/analysis-parameters/)
+
+#### 生成测试率覆盖报告
+
+需要开启覆盖率统计，开启后会自动导入jacoco。
+
+1、开启：在模块的build.gradle里的buildTypes闭包里添加开启覆盖率统计，如下。
+
+~~~
+debug {    
+    testCoverageEnabled true
+}
+~~~
+
+2、使用：使用命令 **jacocoTestReport** 来计算覆盖率
+
+~~~
+./gradlew jacocoTestReport
+~~~
+
+
 
 
 ## 参考
