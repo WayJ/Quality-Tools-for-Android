@@ -8,6 +8,17 @@ apply from: QT_Path +'static-checker/config-init.groovy'
 // 不小于该版本
 ext.CompareGradleVersion =  { targetVersion -> CompareVersion(gradle.gradleVersion,targetVersion)>=0 ;}
 
+// 读取配置
+Properties properties = new Properties();
+try {
+    properties.load(new FileInputStream(new File(rootDir,"gradle.properties")));
+    ext.sonarUrl = properties.getProperty("qt.sonarUrl");
+    println sonarUrl
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
+
 /*
  * Gradke V5.6 移除了 findbugs，使用spotbugs：https://docs.gradle.org/current/userguide/upgrading_version_5.html#changes_6.0
  */
@@ -20,6 +31,7 @@ if(useSpotbugs){
 }else{
     apply from: QT_Path +'static-checker/findbugs-init.groovy'
 }
+
 
 
 //比对版本方法

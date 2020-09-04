@@ -23,13 +23,18 @@ gradle.projectsEvaluated { g ->
         println "AndroidQT --> apply plugin: sonarqube"
 
         tasks.sonarqube.group 'Verification'
+
+        String sonarHostUrl = (sonarUrl==null)?"http://192.168.40.17:30910":sonarUrl
+
+        // println sonarHostUrl
+
         sonarqube {
             properties {
                 property 'sonar.sourceEncoding', 'UTF-8'
 
                 property "sonar.language","java"  //语言
 //            property "sonar.profile", "Android Lint"
-                property "sonar.host.url", "http://192.168.40.17:30910"
+                property "sonar.host.url", sonarHostUrl
             }
         }
         ext.applySonar = {

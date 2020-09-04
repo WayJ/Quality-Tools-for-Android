@@ -40,6 +40,7 @@ apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/ma
 3、生成测试率覆盖报告
 
 功能开关：需要开启覆盖率统计，开启后会自动导入jacoco。
+
 开启方式：在模块的build.gradle里的buildTypes闭包里添加开启覆盖率统计，如下。
 
 ~~~
@@ -52,17 +53,19 @@ debug {
 ./gradlew jacocoTestReport
 ~~~
 
-#### 主动下载代码扫描规则配置
+#### 初始化
 
-主要是 FindBugs 和 CheckStyle 的配置文件，每次执行会自动删除之前的配置文件。
+目前初始化过程做了以下操作：
+
+* 下载代码扫描规则配置：主要是 FindBugs 和 CheckStyle 的配置文件，每次执行会自动删除之前的配置文件。
 
 ~~~
-./gradlew qtConfigGet
+./gradlew qtInit
 ~~~
 
 下载的配置文件在 rootProject 的 ./gradle/android-qt 文件夹下。
 
-#### 结合Sonar线上扫描
+#### 线上扫描：结合Sonar
 
 执行sonarqube扫描，并上传到sonar服务端。（rootProject->gradle tasks->verification->sonarqube）
 
@@ -70,7 +73,7 @@ debug {
 ./gradlew sonarqube
 ~~~
 
-#### 本机离线扫描
+#### 线下扫描：导出报告
 
 ~~~
 ./gradlew check
@@ -80,16 +83,25 @@ debug {
 
 1、gradle 5.6 开始，去除了自带的 FindBugs 插件。所以如果使用gradle 5.6 及以上，不在会导入 FindBugs。目前正在尝试集成FaceBook/Infer 代码扫描和Spotbugs 做为替代。
 
+2、配置参数
+
+工具提供了以下参数进行扩展配置，配置方式是在 rootProject 的 gradle.properties 文件中加入配置参数。
+
+```
+# 配置SonarQube的Url地址，执行sonarqube时需要用到
+qt.sonarUrl = http://ip:port
+```
+
+
 
 ## 参考
 
-* [g4s8/Quanta](https://github.com/g4s8/Quanta)
-* [vincentbrison/vb-android-app-quality](https://github.com/vincentbrison/vb-android-app-quality)
+
 * [stephanenicolas/Quality-Tools-for-Android](https://github.com/stephanenicolas/Quality-Tools-for-Android)
 * [sonar-android-lint-plugin](https://github.com/peter-budo/sonar-android-lint-plugin)
 * [alibaba-p3c](https://github.com/alibaba/p3c/blob/master/idea-plugin/README_cn.md)
 * [ffgiff/gradle-init-scripts](https://github.com/ffgiff/gradle-init-scripts)
-
+* [michel-kraemer/gradle-download-task](https://github.com/michel-kraemer/gradle-download-task)
 
 
 

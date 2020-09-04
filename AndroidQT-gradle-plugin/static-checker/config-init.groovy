@@ -19,19 +19,26 @@ gradle.projectsEvaluated { g ->
         task qtConfigDownloadZip(type: Download,dependsOn: qtConfigClearConfig) {
             src 'https://github.com/WayJ/Quality-Tools-for-Android/releases/download/v0.1-alpha/config-default-v0.1.zip'
             dest new File("$rootDir/.gradle/android-qt", 'config-default.zip')
+
+            doLast {
+                copy {
+                    from zipTree(dest)
+                    into "$rootDir/.gradle/android-qt"
+                }
+            }
         }
 
-        task qtConfigUnzipFile(dependsOn: qtConfigDownloadZip, type: Copy) {
-            from zipTree(qtConfigDownloadZip.dest)
-            into "$rootDir/.gradle/android-qt"
+        // task qtConfigUnzipFile(dependsOn: qtConfigDownloadZip, type: Copy) {
+        //     from zipTree(qtConfigDownloadZip.dest)
+        //     into "$rootDir/.gradle/android-qt"
+        // }
+
+        task qtInit(dependsOn: qtConfigDownloadZip){
+
+            doLast{
+                println "AndroidQT --> 下载配置文件：success"
+            }
         }
-
-        task qtConfigGet(dependsOn: qtConfigUnzipFile){
-
-        }
-
-        
-        
-        println "AndroidQT --> apply plugin: download"
+    
     }
 }
