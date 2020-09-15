@@ -26,7 +26,7 @@ void addCheckStyleTask(final Project project) {
     project.tasks.create(
             [name:CHECKSTYLE,
              type:Checkstyle,
-             dependsOn:[project.assembleDebug],]) {
+             dependsOn:["assembleDebug"],]) {
         // final String CONFIG_NAME = 'checkstyle.xml'
         // // Find excludes filter
         // if (rootProject.file(CONFIG_NAME).exists()) {
