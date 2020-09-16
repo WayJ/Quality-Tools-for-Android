@@ -56,7 +56,7 @@ void addCheckStyleTask(final Project project) {
         classpath = project.configurations.compile +
                     files(project.android.bootClasspath)
                     
-            println "AndroidQT --> apply plugin: checkstyle" + project.checkstyle.toolVersion
+            // println "AndroidQT --> apply plugin: checkstyle" + project.checkstyle.toolVersion
         ignoreFailures = true // Don't report error if there are bugs found.
     }
     // Flavourless projects need assembleDebugAndroidTest
