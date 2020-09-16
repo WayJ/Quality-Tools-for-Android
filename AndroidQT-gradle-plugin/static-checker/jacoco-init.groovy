@@ -48,7 +48,11 @@ void addJacocoTestReport(final Project project) {
                 getDebugSources(project)
         final String MAIN_SRC = "$project.projectDir/src/main/java"
 
-        sourceDirectories = files([MAIN_SRC])
+        if(CompareGradleVersion('6.0')){
+
+        }else{
+            sourceDirectories = files([MAIN_SRC])
+        }
         classDirectories = files([DEBUG_TREE])
         executionData = fileTree(dir:project.buildDir, includes:[
                 'jacoco/testDebugUnitTest.exec', 'outputs/code-coverage/connected/*coverage.ec', '../jacoco.exec',
