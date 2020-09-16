@@ -29,13 +29,21 @@
 
 ~~~
 apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/master/AndroidQT-gradle-plugin/android-qt-settings.gradle'
+//镜像地址
+//apply from: 'https://gitee.com/wayj59/Quality-Tools-for-Android/raw/master/AndroidQT-gradle-plugin/android-qt-gitee.gradle'
 ~~~
 
 2、在 rootProject 的 build.gradle中 加入一行 
 
 ~~~
 apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/master/AndroidQT-gradle-plugin/android-qt.gradle'
+//镜像地址
+apply from: 'https://gitee.com/wayj59/Quality-Tools-for-Android/raw/master/AndroidQT-gradle-plugin/android-qt-settings.gradle'
 ~~~
+
+
+>[Gitee 镜像地址](https://gitee.com/wayj59/Quality-Tools-for-Android)：你懂的，国内加载上面2个gradle文件使用镜像能更快
+
 
 #### 初始化
 
