@@ -53,10 +53,10 @@ void addJacocoTestReport(final Project project) {
         }else{
             sourceDirectories = files([MAIN_SRC])
             lassDirectories = files([DEBUG_TREE])
+            executionData = fileTree(dir:project.buildDir, includes:[
+                    'jacoco/testDebugUnitTest.exec', 'outputs/code-coverage/connected/*coverage.ec', '../jacoco.exec',
+            ])
         }
-        executionData = fileTree(dir:project.buildDir, includes:[
-                'jacoco/testDebugUnitTest.exec', 'outputs/code-coverage/connected/*coverage.ec', '../jacoco.exec',
-        ])
     }
 }
 
