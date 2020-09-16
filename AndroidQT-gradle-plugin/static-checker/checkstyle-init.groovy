@@ -24,9 +24,9 @@ gradle.projectsEvaluated {
 void addCheckStyleTask(final Project project) {
     project.apply plugin:CHECKSTYLE
     project.tasks.create(
-            [name:CHECKSTYLE,
+            name:CHECKSTYLE,
              type:Checkstyle,
-             dependsOn:["assembleDebug"],]) {
+             dependsOn:"assembleDebug") {
         // final String CONFIG_NAME = 'checkstyle.xml'
         // // Find excludes filter
         // if (rootProject.file(CONFIG_NAME).exists()) {
