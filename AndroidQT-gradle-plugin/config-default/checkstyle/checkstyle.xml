@@ -11,7 +11,7 @@
     <!-- Checks for Size Violations.  -->
     <!-- 检查文件的长度（行） default max=2000 -->
     <module name="FileLength">
-        <property name="max" value="800"/>
+        <property name="max" value="2500"/>
     </module>
 
     <!-- To configure the check that makes tha annotations available to the filter. -->
@@ -29,7 +29,7 @@
 
     <module name="TreeWalker">
         <!-- Make the @SuppressWarnings annotations available to Checkstyle -->
-        <module name="SuppressWarningsHolder" />
+        <!-- <module name="SuppressWarningsHolder" /> -->
 
         <!-- Checks for imports    -->
         <!-- 必须导入类的完整路径，即不能使用*导入所需的类 -->
@@ -56,40 +56,40 @@
         <module name="WhitespaceAround"/>
         -->
 
-        <!-- 检查类和接口的javadoc 默认不检查author 和version tags
+         <!-- 检查类和接口的javadoc 默认不检查author 和version tags
           authorFormat: 检查author标签的格式
                 versionFormat: 检查version标签的格式
                 scope: 可以检查的类的范围，例如：public只能检查public修饰的类，private可以检查所有的类
                 excludeScope: 不能检查的类的范围，例如：public，public的类将不被检查，但访问权限小于public的类仍然会检查，其他的权限以此类推
                 tokens: 该属性适用的类型，例如：CLASS_DEF,INTERFACE_DEF -->
-        <!--<module name="JavadocType">-->
-        <!--<property name="authorFormat" value="\S"/>-->
-        <!--<property name="scope" value="protected"/>-->
-        <!--<property name="tokens" value="CLASS_DEF,INTERFACE_DEF"/>-->
-        <!--</module>-->
+        <module name="JavadocType">
+            <property name="authorFormat" value="\S"/>
+            <property name="scope" value="protected"/>
+            <property name="tokens" value="CLASS_DEF,INTERFACE_DEF"/>
+        </module>
 
         <!-- 检查方法的javadoc的注释
                 scope: 可以检查的方法的范围，例如：public只能检查public修饰的方法，private可以检查所有的方法
                 allowMissingParamTags: 是否忽略对参数注释的检查
                 allowMissingThrowsTags: 是否忽略对throws注释的检查
                 allowMissingReturnTag: 是否忽略对return注释的检查 -->
-        <!--<module name="JavadocMethod">-->
-        <!--<property name="scope" value="private"/>-->
-        <!--<property name="allowMissingParamTags" value="false"/>-->
-        <!--<property name="allowMissingThrowsTags" value="false"/>-->
-        <!--<property name="allowMissingReturnTag" value="false"/>-->
-        <!--<property name="tokens" value="METHOD_DEF"/>-->
-        <!--<property name="allowUndeclaredRTE" value="true"/>-->
-        <!--<property name="allowThrowsTagsForSubclasses" value="true"/>-->
-        <!--&lt;!&ndash;允许get set 方法没有注释&ndash;&gt;-->
-        <!--<property name="allowMissingPropertyJavadoc" value="true"/>-->
-        <!--</module>-->
+        <module name="JavadocMethod">
+            <property name="scope" value="private"/>
+            <property name="allowMissingParamTags" value="false"/>
+            <property name="allowMissingThrowsTags" value="false"/>
+            <property name="allowMissingReturnTag" value="false"/>
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="allowUndeclaredRTE" value="true"/>
+            <property name="allowThrowsTagsForSubclasses" value="true"/>
+            <!--允许get set 方法没有注释-->
+            <property name="allowMissingPropertyJavadoc" value="true"/>
+        </module>
 
         <!-- 检查类变量的注释
                 scope: 检查变量的范围，例如：public只能检查public修饰的变量，private可以检查所有的变量 -->
-        <!--<module name="JavadocVariable">-->
-        <!--<property name="scope" value="private"/>-->
-        <!--</module>-->
+        <module name="JavadocVariable">
+            <property name="scope" value="private"/>
+        </module>
 
         <!--option: 定义左大括号'{'显示位置，eol在同一行显示，nl在下一行显示
           maxLineLength: 大括号'{'所在行行最多容纳的字符数
@@ -105,9 +105,9 @@
         <!-- Checks the placement of right curly braces ('}') for  else, try, and catch tokens. The policy to verify is specified using property option.
           option: 右大括号是否单独一行显示
           tokens: 定义检查的类型  -->
-        <!--<module name="RightCurly">-->
-        <!--<property name="option" value="alone"/>-->
-        <!--</module>-->
+        <module name="RightCurly">
+            <property name="option" value="alone"/>
+        </module>
 
         <!-- 检查在重写了equals方法后是否重写了hashCode方法 -->
         <module name="EqualsHashCode"/>
@@ -163,8 +163,8 @@
         </module>
 
         <!-- 代码缩进   -->
-        <!--<module name="Indentation">-->
-        <!--</module>-->
+        <module name="Indentation">
+        </module>
 
         <!-- Checks for redundant exceptions declared in throws clause such as duplicates, unchecked exceptions or subclasses of another declared exception.
           检查是否抛出了多余的异常
@@ -191,7 +191,7 @@
         <module name="SimplifyBooleanReturn"/>
 
         <!-- Checks that a class which has only private constructors is declared as final.只有私有构造器的类必须声明为final-->
-        <!--<module name="FinalClass"/>-->
+        <module name="FinalClass"/>
 
         <!--  Make sure that utility classes (classes that contain only static methods or fields in their API) do not have a public constructor.
           确保Utils类（只提供static方法和属性的类）没有public构造器。
@@ -289,12 +289,17 @@
         </module>
 
         <!-- 返回个数 -->
-        <module name="ReturnCount">
+        <!-- <module name="ReturnCount">
             <property name="max" value="20"/>
             <property name="maxForVoid" value="20"/>
             <property name="format" value="^$"/>
-        </module>
+        </module> -->
 
+        <module name="ReturnCount">
+            <property name="max" value="5"/>
+            <property name="format" value="^$"/>
+        </module>
+        
     </module>
 
 </module>

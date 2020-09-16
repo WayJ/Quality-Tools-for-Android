@@ -43,7 +43,7 @@ void addFindBugsTask(final Project project) {
         //     }
         // }
 
-        excludeFilter new File("$rootDir/.gradle/android-qt/findbugs-filter.xml")
+        excludeFilter new File("$rootDir/.gradle/android-qt/findbugs/findbugs-filter.xml")
 
 
         classes = getDebugSources(project)

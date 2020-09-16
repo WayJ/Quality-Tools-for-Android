@@ -13,7 +13,7 @@ Properties properties = new Properties();
 try {
     properties.load(new FileInputStream(new File(rootDir,"gradle.properties")));
     String setfileUrl = properties.getProperty("qt.configZipFileUrl");
-    String defaultFileUrl = 'https://github.com/WayJ/Quality-Tools-for-Android/releases/download/v0.1-alpha/config-default-v0.1.zip';
+    String defaultFileUrl = 'https://github.com/WayJ/Quality-Tools-for-Android/releases/download/v0.2/config-default.zip';
     ext.configZipFileUrl = (setfileUrl == null) ? defaultFileUrl : setfileUrl;
 } catch (IOException e) {
     e.printStackTrace();
