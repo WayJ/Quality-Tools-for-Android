@@ -29,8 +29,8 @@
 
 ~~~
 apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/master/AndroidQT-gradle-plugin/android-qt-settings.gradle'
-//镜像地址
-//apply from: 'https://gitee.com/wayj59/Quality-Tools-for-Android/raw/master/AndroidQT-gradle-plugin/android-qt-gitee.gradle'
+//镜像地址:
+//apply from: 'https://gitee.com/wayj59/Quality-Tools-for-Android/raw/master/AndroidQT-gradle-plugin/android-qt-settings.gradle'
 ~~~
 
 2、在 rootProject 的 build.gradle中 加入一行 
@@ -38,7 +38,7 @@ apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/ma
 ~~~
 apply from: 'https://raw.githubusercontent.com/WayJ/Quality-Tools-for-Android/master/AndroidQT-gradle-plugin/android-qt.gradle'
 //镜像地址
-apply from: 'https://gitee.com/wayj59/Quality-Tools-for-Android/raw/master/AndroidQT-gradle-plugin/android-qt-settings.gradle'
+//apply from:'https://gitee.com/wayj59/Quality-Tools-for-Android/raw/master/AndroidQT-gradle-plugin/android-qt-gitee.gradle'
 ~~~
 
 
