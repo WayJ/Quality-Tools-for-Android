@@ -1,9 +1,4 @@
 apply from: QT_Path +'static-checker/sonar-init.groovy'
-apply from: QT_Path +'static-checker/pmd-init.groovy'
-apply from: QT_Path +'static-checker/checkstyle-init.groovy'
-// apply from: QT_Path +'static-checker/ktlint-init.groovy'
-apply from: QT_Path +'static-checker/jacoco-init.groovy'
-apply from: QT_Path +'static-checker/config-init.groovy'
 
 // 不小于该版本
 ext.CompareGradleVersion =  { targetVersion -> CompareVersion(gradle.gradleVersion,targetVersion)>=0 ;}
@@ -15,22 +10,37 @@ try {
     String setfileUrl = properties.getProperty("qt.configZipFileUrl");
     String defaultFileUrl = 'https://github.com/WayJ/Quality-Tools-for-Android/releases/download/v0.2/config-default.zip';
     ext.configZipFileUrl = (setfileUrl == null) ? defaultFileUrl : setfileUrl;
+
+    
+    String _sonarOnly = properties.getProperty("qt.sonarOnly");
+    ext.sonarOnly = (_sonarOnly == null) ? false : _sonarOnly;
 } catch (IOException e) {
     e.printStackTrace();
 }
+
 
 
 /*
  * Gradke V5.6 移除了 findbugs，使用spotbugs：https://docs.gradle.org/current/userguide/upgrading_version_5.html#changes_6.0
  */
 println "AndroidQT --> Running gradle version: $gradle.gradleVersion"
-// println "AndroidQT --> Running gradle version: " + CompareGradleVersion('4.6')
-boolean useSpotbugs = CompareGradleVersion('5.6');
 
-if(useSpotbugs){
+
+if(!sonarOnly){  
+    apply from: QT_Path +'static-checker/pmd-init.groovy'
+    apply from: QT_Path +'static-checker/checkstyle-init.groovy'
+    // apply from: QT_Path +'static-checker/ktlint-init.groovy'
+    apply from: QT_Path +'static-checker/jacoco-init.groovy'
+    apply from: QT_Path +'static-checker/config-init.groovy'
+
+    boolean useSpotbugs = CompareGradleVersion('5.6');
+
+    if(useSpotbugs){
     // apply from: QT_Path +'static-checker/spotbugs-init.groovy'
-}else{
-    apply from: QT_Path +'static-checker/findbugs-init.groovy'
+    }else{
+        apply from: QT_Path +'static-checker/findbugs-init.groovy'
+    }
+
 }
 
 

@@ -92,6 +92,8 @@ gradle 5.6 开始，去除了自带的 FindBugs 插件。所以如果使用gradl
 #------------------- Android QT 工具配置
 #----- 代码校验规则配置文件的下载地址，用于提供自定规则，必须是zip，文件目录和文件名要参考我提供的
 qt.configZipFileUrl = https://github.com/WayJ/Quality-Tools-for-Android/releases/download/v0.1-alpha/config-default-v0.1.zip
+#----- sonarOnly 设置为ture后，仅依赖sonar，不会加入findbugs等其他工具
+qt.sonarOnly = false
 #------------------- 以下为Sonar配置，更多可以查看sonar插件官方文档
 #----- 配置SonarQube的Url地址，执行sonarqube时需要用到。***** 这个如果要用到sonar，就会是必须要配置的
 systemProp.sonar.host.url=http://localhost:9000
